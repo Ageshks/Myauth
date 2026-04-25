@@ -58,62 +58,45 @@ class _SplashPageState extends State<SplashPage> {
           ),
         ),
         child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                width: 110,
-                height: 110,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  gradient: LinearGradient(
-                    colors: [Color(0xFF4F7BFF), Color(0xFF8EA8FF)],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.25),
-                      blurRadius: 18,
-                      offset: Offset(0, 10),
-                    ),
-                  ],
-                ),
-                child: Center(
-               child: Center(
-  child: Image.asset(
-    'assets/images/myauth.png',
-    width: 70,
-    height: 70,
-    fit: BoxFit.contain,
+  child: Column(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      Image.asset(
+        'assets/images/myauth.png',
+        width: 140,
+        height: 140,
+        fit: BoxFit.contain,
+      ),
+
+      SizedBox(height: 24),
+
+      Text(
+        'Authenticator',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 28,
+          fontWeight: FontWeight.w800,
+        ),
+      ),
+
+      SizedBox(height: 8),
+
+      Text(
+        'Secure OTP storage',
+        style: TextStyle(
+          color: Colors.grey[300],
+          fontSize: 16,
+        ),
+      ),
+
+      SizedBox(height: 24),
+
+      CircularProgressIndicator(
+        valueColor: AlwaysStoppedAnimation(Color(0xFF4F7BFF)),
+      ),
+    ],
   ),
 ),
-                ),
-              ),
-              SizedBox(height: 24),
-              Text(
-                'Authenticator',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 28,
-                  fontWeight: FontWeight.w800,
-                ),
-              ),
-              SizedBox(height: 8),
-              Text(
-                'Secure OTP storage',
-                style: TextStyle(
-                  color: Colors.grey[300],
-                  fontSize: 16,
-                ),
-              ),
-              SizedBox(height: 24),
-              CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation(Color(0xFF4F7BFF)),
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }
