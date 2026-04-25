@@ -1,0 +1,43 @@
+name: myauth
+description: "Offline Authenticator App"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # State Management
+  get: ^4.6.6
+
+  # TOTP generation
+  otp: ^3.1.0
+
+  # QR Scanner
+  mobile_scanner: ^3.5.5
+
+  # Secure storage
+  flutter_secure_storage: ^9.0.0
+
+  # Encrypted export/import
+  encrypt: ^5.0.3
+  crypto: ^3.0.3
+  qr_flutter: ^4.0.0
+
+  # (Recommended 🔐) Biometric lock
+  local_auth: ^2.1.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
