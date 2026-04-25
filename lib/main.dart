@@ -80,11 +80,14 @@ class _SplashPageState extends State<SplashPage> {
                   ],
                 ),
                 child: Center(
-                  child: Icon(
-                    Icons.lock_outline,
-                    color: Colors.white,
-                    size: 52,
-                  ),
+               child: Center(
+  child: Image.asset(
+    'assets/images/myauth.png',
+    width: 70,
+    height: 70,
+    fit: BoxFit.contain,
+  ),
+),
                 ),
               ),
               SizedBox(height: 24),
@@ -357,34 +360,49 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: Text("Authenticator"),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.privacy_tip_outlined),
-            tooltip: 'Privacy Policy',
-            onPressed: () => Get.to(() => const PrivacyPolicyPage()),
-          ),
-          IconButton(
-            icon: Icon(Icons.upload_file_outlined),
-            tooltip: 'Export accounts',
-            onPressed: () => showExportDialog(context),
-          ),
-          IconButton(
-            icon: Icon(Icons.download_outlined),
-            tooltip: 'Import accounts',
-            onPressed: () => showImportDialog(context),
-          ),
-        ],
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0xFF0E1A33), Color(0xFF172E52)],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-          ),
+  title: Row(
+    children: [
+      Image.asset(
+        'assets/images/myauth.png',
+        height: 28,
+      ),
+      SizedBox(width: 10),
+      Text(
+        "Myauth",
+        style: TextStyle(
+          fontWeight: FontWeight.w700,
+          fontSize: 20,
         ),
       ),
+    ],
+  ),
+  actions: [
+    IconButton(
+      icon: Icon(Icons.privacy_tip_outlined),
+      tooltip: 'Privacy Policy',
+      onPressed: () => Get.to(() => const PrivacyPolicyPage()),
+    ),
+    IconButton(
+      icon: Icon(Icons.upload_file_outlined),
+      tooltip: 'Export accounts',
+      onPressed: () => showExportDialog(context),
+    ),
+    IconButton(
+      icon: Icon(Icons.download_outlined),
+      tooltip: 'Import accounts',
+      onPressed: () => showImportDialog(context),
+    ),
+  ],
+  flexibleSpace: Container(
+    decoration: BoxDecoration(
+      gradient: LinearGradient(
+        colors: [Color(0xFF0E1A33), Color(0xFF172E52)],
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+      ),
+    ),
+  ),
+),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Get.to(() => ScanPage()),
         backgroundColor: Color(0xFF4F7BFF),
