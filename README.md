@@ -112,3 +112,92 @@ AuthGuard is a modern authenticator application that implements the TOTP standar
 4. Save or share the encrypted `.authguard` backup file
 
 ---
+
+## 🔒 Security
+
+Security is the core of this application. Here's how we protect your data:
+
+- **No Cloud Storage** — Secrets never leave your device
+- **AES-256-GCM Encryption** — All TOTP secrets are encrypted at rest
+- **Biometric Lock** — App access can be protected with Face ID / Fingerprint
+- **Screenshot Prevention** — Screenshots are disabled within the app on supported platforms
+- **Open Source** — Fully auditable codebase
+
+> ⚠️ **Warning:** If you lose access to your backup and your device, you may permanently lose access to your accounts. Always keep an encrypted backup in a safe place.
+
+---
+
+## ⚙️ Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+# App configuration
+APP_NAME=AuthGuard
+APP_ENV=development         # development | production
+
+# Encryption
+ENCRYPTION_ITERATIONS=100000
+
+# Feature flags
+ENABLE_BIOMETRICS=true
+ENABLE_BACKUP=true
+ENABLE_DARK_MODE=true
+```
+
+---
+
+## 📡 API Reference
+
+If your project exposes an internal API or CLI, document it here.
+
+### `generateTOTP(secret, options?)`
+
+Generates a TOTP code for a given Base32-encoded secret.
+
+```js
+import { generateTOTP } from './src/utils/totp';
+
+const code = generateTOTP('JBSWY3DPEHPK3PXP', {
+  digits: 6,       // Number of digits (default: 6)
+  period: 30,      // Time step in seconds (default: 30)
+  algorithm: 'SHA1' // Hashing algorithm (default: SHA1)
+});
+
+console.log(code); // e.g., "482915"
+```
+
+### `validateTOTP(token, secret, options?)`
+
+Validates a TOTP token against a secret.
+
+```js
+import { validateTOTP } from './src/utils/totp';
+
+const isValid = validateTOTP('482915', 'JBSWY3DPEHPK3PXP');
+console.log(isValid); // true or false
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a new branch: `git checkout -b feature/your-feature-name`
+3. Make your changes and commit: `git commit -m "feat: add your feature"`
+4. Push to your branch: `git push origin feature/your-feature-name`
+5. Open a Pull Request
+
+Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for our code of conduct and detailed contribution guidelines.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** — see the [LICENSE](./LICENSE) file for details.
+
+---
+
+<p align="center">Made with ❤️ by the AuthGuard Team</p>
