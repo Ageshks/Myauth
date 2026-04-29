@@ -1,4 +1,4 @@
-package com.example.myauth
+package com.agesh.myauth
 
 import io.flutter.embedding.android.FlutterActivity
 
